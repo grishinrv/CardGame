@@ -4,6 +4,9 @@
             <p>3</p>
         </div>
         <div class="imageContainer">
+            <!-- переделать на получение картинки из props компонента,
+                используя синтаксис привязки
+             -->
             <img class="avatar embeded" alt="Место под картинку"
 src="https://cdnb.artstation.com/p/assets/images/images/018/433/397/large/anton-evsyukov-blood-elf.jpg?1559343941"/>
         </div>
@@ -11,6 +14,9 @@ src="https://cdnb.artstation.com/p/assets/images/images/018/433/397/large/anton-
             <div class="miniCell">
                 <img class="embeded"
 src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSVq047Xkq-mdmT8MLMad8bre5PVevJ7jCZKklptIrqCVE0caXE&usqp=CAU"/>
+            <!-- переделать на получение значений атаки и защиты из props компонента,
+                используя синтаксис привязки
+             -->
                 <p class="over">2</p>
             </div>
             <div class="miniCell">
@@ -26,7 +32,7 @@ src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSVq047Xkq-mdmT8MLMa
 
 <script>
 export default {
-    
+    // описать принимаемые компонентом данные
 }
 </script>
 
