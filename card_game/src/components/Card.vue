@@ -3,8 +3,9 @@
         <div class="miniCell glueLeft testCell">
             <p>3</p>
         </div>
-        <div class="imageContainer testCell">
-            Место под картинку
+        <div class="imageContainer">
+            <img class="avatar" alt="Место под картинку"
+src="https://cdnb.artstation.com/p/assets/images/images/018/433/397/large/anton-evsyukov-blood-elf.jpg?1559343941"/>
             <!-- Разместить картинку. При помощи css добиться, 
             чтобы она была ограничена рамкой по размеру imageContainer -->
         </div>
@@ -81,4 +82,13 @@ div{
     transform: scaleX(0.8);
     float: top;
 }
+.avatar{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    border-radius: 50%;
+    position: relative;
+    left: 10%;
+}
+
 </style>
