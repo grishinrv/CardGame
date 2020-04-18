@@ -1,46 +1,63 @@
 <template>
   <div id="app">
-    <div id="gameContainer">
-      <!-- 
-          Прочитайте статью:
-          https://ru.vuejs.org/v2/guide/components-props.html
-      -->
-      <!-- передать каждому экземпляру компонента Card разные данные-->
-      <Card />
-      <Card />
-    </div>
+    <main class="flexbox">
+      <Board id="board-1">
+        <Card id="card-1" draggable="true"></Card>
+        <Card id="card-2" draggable="true"></Card>
+        <Card id="card-3" draggable="true"></Card>
+      </Board>
+
+      <Board id="board-2">
+        <Card id="card-4" draggable="true"></Card>
+      </Board>
+    </main>
   </div>
 </template>
 
 <script>
+import Board from './components/Board'
 import Card from './components/Card.vue'
 
 export default {
   name: 'App',
-  data(){ //функция data() - js метод, который возвращает массив
-    return { // функция return
-      cardData: [
-//заполнить массив данными для последующей передачи в экземпляры Card
-      ]
-    }
-  },
   components: {
+    Board,
     Card
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+    background-color: grey;
 }
-#gameContainer{
+.flexbox{
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 1920px;
+  height: 500px;
+
+  overflow: hidden;
+
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.flexbox .board{
+  display: flex;
+
+  width: 100%;
+  max-width: 500px;
+  height: 480px;
+
+  background-color: bisque;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+
+  padding: 15px;
 }
 </style>

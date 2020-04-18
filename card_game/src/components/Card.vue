@@ -1,5 +1,10 @@
 <template>
-    <div class="card">
+    <div class="card"
+         :id="id"
+         :draggable="draggable"
+         @dragstart="dragStart"
+         @dragover.stop
+    >
         <div class="miniCell glueLeft testCell">
             <p>3</p>
         </div>
@@ -32,7 +37,17 @@ src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSVq047Xkq-mdmT8MLMa
 
 <script>
 export default {
-    // описать принимаемые компонентом данные
+    props: ['id', 'draggable'],
+    methods: {
+        dragStart: e => {
+            console.log("dragStart вызван");
+            const target = e.target;
+            e.dataTransfer.setData('card_id', target.id);
+             setTimeout(() => {
+                 target.style.dsplay = "none";
+             }, 2);
+        }
+    }
 }
 </script>
 
@@ -42,6 +57,7 @@ export default {
     height: 220px;
     border: 2px solid black;
     background-color: burlywood;
+    cursor: pointer;
 }
 div{
     padding: 0;
