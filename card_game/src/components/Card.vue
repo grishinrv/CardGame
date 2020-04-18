@@ -12,7 +12,7 @@
             <!-- переделать на получение картинки из props компонента,
                 используя синтаксис привязки
              -->
-            <img class="avatar embeded" alt="Место под картинку"
+            <img :id="getImgId(id)" class="avatar embeded" alt="Место под картинку"
 src="https://cdnb.artstation.com/p/assets/images/images/018/433/397/large/anton-evsyukov-blood-elf.jpg?1559343941"/>
         </div>
         <div class="rowCell glueBottom testCell">
@@ -42,10 +42,21 @@ export default {
         dragStart: e => {
             console.log("dragStart вызван");
             const target = e.target;
-            e.dataTransfer.setData('card_id', target.id);
+            var actualId = '';
+            if (target.id.includes('img'))
+                actualId = target.id.substring(0, target.id.length - 3);
+            else
+                actualId = target.id;
+
+            console.log('Карточка - ' + actualId);
+
+            e.dataTransfer.setData('card_id', actualId);
              setTimeout(() => {
                  target.style.dsplay = "none";
              }, 2);
+        },
+        getImgId: function (card_id) {
+            return card_id + 'img';
         }
     }
 }
