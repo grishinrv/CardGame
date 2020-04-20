@@ -9,19 +9,15 @@
             <p>3</p>
         </div>
         <div class="imageContainer">
-            <!-- переделать на получение картинки из props компонента,
-                используя синтаксис привязки
-             -->
-            <img :id="getImgId(id)" class="avatar embeded" alt="Место под картинку"
+            <img :id="getId(id, 'avatar')" 
+            class="avatar embeded" 
 src="https://cdnb.artstation.com/p/assets/images/images/018/433/397/large/anton-evsyukov-blood-elf.jpg?1559343941"/>
+                <p class="over"></p>
         </div>
         <div class="rowCell glueBottom testCell">
             <div class="miniCell">
-                <img class="embeded"
+                <img class="embeded" :id="getId(id, 'attack')"
 src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSVq047Xkq-mdmT8MLMad8bre5PVevJ7jCZKklptIrqCVE0caXE&usqp=CAU"/>
-            <!-- переделать на получение значений атаки и защиты из props компонента,
-                используя синтаксис привязки
-             -->
                 <p class="over">2</p>
             </div>
             <div class="miniCell">
@@ -40,23 +36,16 @@ export default {
     props: ['id', 'draggable'],
     methods: {
         dragStart: e => {
-            console.log("dragStart вызван");
             const target = e.target;
-            var actualId = '';
-            if (target.id.includes('img'))
-                actualId = target.id.substring(0, target.id.length - 3);
-            else
-                actualId = target.id;
-
-            console.log('Карточка - ' + actualId);
-
+            var actualId = target.id;
+            console.log('Перетаскивание начато - ' + actualId);
             e.dataTransfer.setData('card_id', actualId);
              setTimeout(() => {
                  target.style.dsplay = "none";
              }, 2);
         },
-        getImgId: function (card_id) {
-            return card_id + 'img';
+        getId: function (card_id, prefix) {
+            return card_id + prefix;
         }
     }
 }
