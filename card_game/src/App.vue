@@ -49,6 +49,9 @@ body {
 .flexbox .board{
   display: flex;
 
+  flex-wrap: wrap;
+  justify-content: space-around;
+
   width: 100%;
   max-width: 500px;
   height: 480px;
