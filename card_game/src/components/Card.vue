@@ -10,8 +10,8 @@
         </div>
         <div class="imageContainer">
             <img :id="getId(id, 'avatar')" 
-            class="avatar embeded" 
-src="https://cdnb.artstation.com/p/assets/images/images/018/433/397/large/anton-evsyukov-blood-elf.jpg?1559343941"/>
+            class="embeded avatar" 
+            :src="avatar"/>
                 <p class="over"></p>
         </div>
         <div class="rowCell glueBottom testCell">
@@ -33,7 +33,7 @@ src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSVq047Xkq-mdmT8MLMa
 
 <script>
 export default {
-    props: ['id', 'draggable'],
+    props: ['id', 'draggable', 'avatar'],
     methods: {
         dragStart: e => {
             const target = e.target;
@@ -91,19 +91,23 @@ div{
     align-content: space-around;
 }
 .imageContainer{
-    width: 100%;
-    height: 70%;
+    width: 15vmin;
+    height: 21vmin;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 50%;
-    transform: scaleX(0.8);
+    overflow: hidden;
+    border-bottom-left-radius: 65% 65%;
+    border-bottom-right-radius: 65% 65%;
+    border-top-left-radius: 65% 65%;
+    border-top-right-radius: 65% 65%;
     float: top;
 }
 .avatar{
-    border-radius: 50%;
+    transform: scale(1.4);
     position: relative;
-    left: 10%;
+    top: 2vmin;
 }
+
 .embeded{
     max-width: 100%;
     max-height: 100%;

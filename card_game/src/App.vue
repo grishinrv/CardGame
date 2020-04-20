@@ -2,13 +2,13 @@
   <div id="app">
     <main class="flexbox">
       <Board id="board-1">
-        <Card id="card-1" draggable="true"></Card>
-        <Card id="card-2" draggable="true"></Card>
-        <Card id="card-3" draggable="true"></Card>
+        <Card id="card-1" draggable="true" avatar="https://cdnb.artstation.com/p/assets/images/images/018/433/397/large/anton-evsyukov-blood-elf.jpg?1559343941"></Card>
+        <Card id="card-2" draggable="true" avatar="https://i.pinimg.com/originals/33/d5/6f/33d56f85496956d2f3e1bb1bb91616b2.jpg"></Card>
+        <Card id="card-3" draggable="true" avatar="https://cdnb.artstation.com/p/assets/images/images/019/518/927/large/paul-mafayon-anka-the-buried-final.jpg?1563863853"></Card>
       </Board>
 
       <Board id="board-2">
-        <Card id="card-4" draggable="true"></Card>
+        <Card id="card-4" draggable="true" avatar="https://natpagle.ru/wp-content/uploads/2019/06/Madame-Lazul-art.jpg"></Card>
       </Board>
     </main>
   </div>
