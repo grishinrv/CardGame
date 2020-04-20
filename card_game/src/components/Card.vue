@@ -55,6 +55,8 @@ export default {
 .card {
     width: 140px;
     height: 220px;
+    min-width: 140px;
+    min-height: 220px;
     border: 2px solid black;
     background-color: burlywood;
     cursor: pointer;
