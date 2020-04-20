@@ -53,10 +53,10 @@ export default {
 
 <style scoped>
 .card {
-    width: 140px;
-    height: 220px;
-    min-width: 140px;
-    min-height: 220px;
+    width: 17vmin;
+    height: 30vmin;
+    min-width: 20vmin;
+    min-height: 30vmin;
     border: 2px solid black;
     background-color: burlywood;
     cursor: pointer;
