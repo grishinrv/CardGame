@@ -1,7 +1,7 @@
 <template>
     <div
         :id="id"
-        class="board flexbox"
+        class="board"
         @dragover.prevent
         @drop.prevent="drop"
     >
