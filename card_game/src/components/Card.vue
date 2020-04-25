@@ -1,22 +1,23 @@
 <template>
-    <div class="card">
+    <div class="card"
+         :id="id"
+         :draggable="draggable"
+         @dragstart="dragStart"
+         @dragover.stop
+    >
         <div class="miniCell glueLeft testCell">
             <p>3</p>
         </div>
         <div class="imageContainer">
-            <!-- переделать на получение картинки из props компонента,
-                используя синтаксис привязки
-             -->
-            <img class="avatar embeded" alt="Место под картинку"
-src="https://cdnb.artstation.com/p/assets/images/images/018/433/397/large/anton-evsyukov-blood-elf.jpg?1559343941"/>
+            <img :id="getId(id, 'avatar')" 
+            class="embeded avatar" 
+            :src="avatar"/>
+                <p class="over"></p>
         </div>
         <div class="rowCell glueBottom testCell">
             <div class="miniCell">
-                <img class="embeded"
+                <img class="embeded" :id="getId(id, 'attack')"
 src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSVq047Xkq-mdmT8MLMad8bre5PVevJ7jCZKklptIrqCVE0caXE&usqp=CAU"/>
-            <!-- переделать на получение значений атаки и защиты из props компонента,
-                используя синтаксис привязки
-             -->
                 <p class="over">2</p>
             </div>
             <div class="miniCell">
@@ -32,16 +33,33 @@ src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSVq047Xkq-mdmT8MLMa
 
 <script>
 export default {
-    // описать принимаемые компонентом данные
+    props: ['id', 'draggable', 'avatar'],
+    methods: {
+        dragStart: e => {
+            const target = e.target;
+            var actualId = target.id;
+            console.log('Перетаскивание начато - ' + actualId);
+            e.dataTransfer.setData('card_id', actualId);
+             setTimeout(() => {
+                 target.style.dsplay = "none";
+             }, 2);
+        },
+        getId: function (card_id, prefix) {
+            return card_id + prefix;
+        }
+    }
 }
 </script>
 
 <style scoped>
 .card {
-    width: 140px;
-    height: 220px;
+    width: 17vmin;
+    height: 30vmin;
+    min-width: 20vmin;
+    min-height: 30vmin;
     border: 2px solid black;
     background-color: burlywood;
+    cursor: pointer;
 }
 div{
     padding: 0;
@@ -73,19 +91,23 @@ div{
     align-content: space-around;
 }
 .imageContainer{
-    width: 100%;
-    height: 70%;
+    width: 15vmin;
+    height: 21vmin;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 50%;
-    transform: scaleX(0.8);
+    overflow: hidden;
+    border-bottom-left-radius: 65% 65%;
+    border-bottom-right-radius: 65% 65%;
+    border-top-left-radius: 65% 65%;
+    border-top-right-radius: 65% 65%;
     float: top;
 }
 .avatar{
-    border-radius: 50%;
+    transform: scale(1.4);
     position: relative;
-    left: 10%;
+    top: 2vmin;
 }
+
 .embeded{
     max-width: 100%;
     max-height: 100%;
